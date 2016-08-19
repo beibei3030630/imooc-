@@ -1,0 +1,270 @@
+.clear-fix:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+nav{
+	background-color: rgba(0,0,0,0.4);
+	height:50px;
+}
+header{
+	background-color: rgba(0,0,0,0.2);
+}
+#banner{
+	height:700px;
+	color: #fff;
+}
+nav ul{
+	list-style:none;
+	margin: 0;
+	float:right;
+}
+nav ul li,nav .logo{
+	display: inline-block;	
+	line-height: 50px;
+	margin-right: 20px;
+}
+nav ul li a{
+	line-height: 50px;
+	text-decoration: none;
+	display: inline-block;
+	height: inherit; /*
+	改变a标签高度 是点击区域增高
+	但是不能设置width a标签宽度自适应
+	*/
+	color:#fff;
+}
+div.logo{
+	float: left;
+	padding: 10px;
+}
+#banner .inner{
+	max-width:300px;
+	text-align: center;
+	margin:0 auto;
+	position: relative;
+	top:160px;
+}
+#banner .inner h1{
+	margin:0;
+}
+button{
+	border:none;
+	background-color: #333;
+	color:#eee;
+	padding-left: 10px;
+}
+#banner button{
+	padding:14px 60px;
+}
+.sub-heading{
+	line-height: 30px;
+	margin:30px;
+}
+.logo{
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	/*字体间距*/
+}
+.logo a{
+	color:#fff;
+}
+.wrapper{
+	max-width: 1080px;
+	margin:0 auto;
+}
+.green-section{
+	background-color: #089db0;
+	color: #fff;
+	text-align: center;
+	padding: 100px 0px;
+}
+.green-section h2{
+	margin-top: 0px;
+	font-size: 30px;
+}
+.hr{
+	width: 100%;
+	margin:0 auto;
+	height: 2px;
+}
+h2{
+	margin-top: 0px;
+}
+h3{
+	font-size: 24px;
+}
+p{
+	font-size: 18px;
+letter-spacing: 1px;
+}
+ul{
+	margin: 0;
+}
+.green-section .hr{
+	background-color: #078494;
+	width:60%;
+}
+.sub-heading{
+	font-size: 18px;
+	line-height: 30px;
+	margin:30px 0;
+
+}
+.green-section .icon-group{
+	margin-top: 60px;
+}
+.green-section .icon-group .icon{
+	width:80px;
+	height:80px;
+	display: inline-block;
+	border:1px solid #D06F7C;
+	margin: 20px;
+	transform: rotate(45deg);
+}
+.gray-section{
+	background-color:#252f34;
+	color:#fff;
+}
+.gray-section .img-section{
+	width: 45%;
+}
+.img-section img{
+	width: 100%;
+	/*与自己的父容器宽度相同 不会超出父元素*/	
+}
+.article-preview {
+	font-size: 0px;
+}
+/*重置外部容器的字体为0px。
+  内部字体不同会导致行高不同，
+  会造成内部容器之间有空隙。
+*/
+.article-preview:nth-child(odd){
+	background: rgba(255,255,255,0.05);
+}
+/*相邻色系如果想要细微差别可以
+添加白色的背景再添加透明度即可
+	255 +透明度代表变浅
+	0+透明度代表变深
+*/
+.article-preview > div{
+	float: left;
+}
+.article-preview:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+.gray-section .text-section{
+	width: 55%;
+}
+ .text-section {
+	position: relative;
+	top:109px;
+	left:50px;
+}
+.text-section >*{
+	max-width: 90%;
+}
+.text-section h2{
+	margin-bottom: 20px;
+
+}
+.text-section p{
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+.text-section .sub-heading{
+	font-size: 22px;
+}
+.purple-section{
+	background: #61437A;
+	color:#fff;
+	padding: 80px;
+}
+.purple-section .heading-wrapper{
+	text-align: center;
+}
+.purple-section .hr{
+	background-color: #7a429c;
+	width:60%;
+}
+.purple-section .card{
+	width: 50%;
+	float: left;
+	min-height:300px;
+	padding: 50px;
+	-webkit-box-sizing:border-box ;
+		-moz-box-sizing:border-box ;
+		-ms-box-sizing:border-box ;
+		-o-box-sizing:border-box ;
+		box-sizing:border-box ;	
+}
+/*大容器内有两个小容器
+如果想要并列可以同时左浮动*/
+.card:first-child{
+	background: rgba(0,0,0,0.1);
+}
+.card:nth-child(2){
+	background-color: rgba(0,0,0,0.08);
+}
+.card:nth-child(3){
+	background-color: rgba(255,255,255,0.1);
+}
+.card:nth-child(4){
+	background-color: rgba(255,255,255,0.08);
+}
+.card:nth-child(5){
+	background-color: rgba(255,255,255,0.05);
+}
+.card:last-child{
+	background-color: rgba(255,255,255,0.03);
+}
+footer{
+	background-color: #333;
+	color:#fff;
+	min-height: 200px;
+	text-align: center;
+}
+ul.share-group{
+	display: block;
+	width: 1080px;
+	margin: 0 auto;
+	padding: 30px;
+}
+.share-group li{
+	padding: 10px;
+	display: inline-block;
+}
+.copy{
+	padding-bottom: 20px;
+
+}
+.main-wrapper{
+	background:url(../images/banner.jpg) no-repeat;
+	background-attachment: fixed;
+	/*background-attachment 属性设置背景图像是否固定
+	或者随着页面的其余部分滚动。*/
+	background-size: cover;
+	/*
+	   background-size控制背景的属性，可以缩放大小。
+	    可选值：px，%,auto,cover,contain
+       需要特别注意一下，图片大小不是按背景图片大小的百分数来计算的，而是装载背景图的元素的百分比来计算。
+      参数：1-2个
+      第一个参数值为背景图的width
+      第二个参数值为背景图的height
+      如果只设定1个值，则第二个默认为auto。当然cover和contain只需要一个参数即可。
+	  参考网址:http://www.igooda.cn/jsdt/20130827355.html;
+	 */
+	 background-position: center center;
+}
+.content section,footer{
+	margin-top: 30px;
+}
+.content section:first-child{
+	margin-top: 0px;
+}
+
+
