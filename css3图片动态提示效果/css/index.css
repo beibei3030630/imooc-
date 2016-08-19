@@ -1,0 +1,301 @@
+body,figure,figcaption,h2,p,img{
+	padding: 0;
+	margin: 0;
+}
+figure{
+	position: relative;
+	width:calc(100%/3);
+	overflow: hidden;
+	height: 350px;
+	float: left;
+}
+figcaption{
+	position: absolute;
+	top:0px;
+	left: 0px;
+	color: #fff;
+	font-family: "微软雅黑";
+}
+img{
+	width:100%;
+	height:100%;
+	opacity: 0.8;
+}
+figure figcaption p,h2,span,div{
+	transition: all 0.35s;
+}
+figure  img{
+	transition:all 0.35s;
+	opacity: 0.8;
+}
+@media screen and (min-width: 1201px){
+	figure{width: calc(100%/3);}
+}
+@media screen and (max-width: 1200px) and (min-width: 800px){
+	figure{width: calc(100%/2);}
+}
+@media screen and (max-width: 800px){
+	figure{width: 100%;}
+}
+.test1{
+	background-color: #2f0000;
+}
+.test1 figcaption p{
+	background: #fff;
+	color: #333;
+	margin:3px;
+	text-align: center;
+	transform: translate(-120px,0px);
+}
+.test1 figcaption p:nth-of-type(1){
+	transition-delay: 0.05s;
+}
+.test1 figcaption p:nth-of-type(2){
+	transition-delay: 0.1s;
+}
+.test1 figcaption p:nth-of-type(3){
+	transition-delay: 0.15s;
+}
+
+.test1:hover figcaption p{
+	transform: translate(0px,0px);
+}
+.test1 figcaption {
+	padding: 20px;
+}
+.test1:hover img{
+	transform: translate(-50px,0);
+	opacity: 0.5;
+}
+.test2{
+	background: #030;	
+}
+/*背景颜色在背景图片的上一层
+这里设置背景颜色是为了遮罩层的效果*/
+.test2:hover img{
+	transform: translate(100px,0);
+	opacity: 0.3;
+}
+.test2 figcaption div{
+	 border: 2px solid #fff;
+    height: 70%;
+    width: 70%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(0,-350px) rotate(0deg);
+}
+/*在结构中div要放置于标题和段落之后，再让标题和
+段落通过绝对定位到div中。*/
+/*旋转与平移相同都要初值角度*/
+.test2:hover figcaption div{
+	transform: translate(0,0) rotate(360deg);
+}	
+/*如果有两个动画则是同时进行*/
+.test2 figcaption{
+	width: 100%;
+	height: 100%;
+}
+.test2 figcaption h2{
+	margin-top: 15%;
+	margin-left: 15%;
+}	
+.test2 figcaption p{
+	margin-left: 15%;
+    transform: translate(0px,50px);
+    opacity: 0;
+}	
+.test2:hover figcaption p{
+	transform: translate(0px,0px);
+	opacity: 1;
+}
+.test2 figcaption p:nth-of-type(1){
+	transition-delay: 0.05s;
+}
+.test2 figcaption p:nth-of-type(2){
+	transition-delay: 0.1s;
+}
+.test2 figcaption p:nth-of-type(3){
+	transition-delay: 0.15s;
+}
+figure.test2 div{
+	transition: transform 1.5s; 
+}
+/*单独修改某个test里面的旋转速度*/
+.test3{
+	background: #000;
+}
+.test3 figcaption {
+	top:30%;
+	left: 15%;
+}
+.test3:hover img{
+	opacity:0.5; 
+}
+.test3 figcaption h2{
+	transform: skew(90deg);
+	transition-delay: 0.2s;
+}
+/*标题横过来90度。所以在skew的属性下：属性值
+为90deg 180deg 270deg 内容都会消失*/
+.test3 figcaption p{
+	transform: skew(90deg);
+	transition-delay: 0.4s;
+}
+.test3:hover figcaption h2{
+	transform: skew(0deg);
+}
+.test3:hover figcaption p{
+	transform: skew(0deg);
+}
+
+.test4{
+	background: #000;
+}
+.test4 figcaption{
+	width: 100%;
+	height: 100%;
+}
+.test4 figcaption div{
+	border: 2px solid #fff;
+	width: 80%;
+	height: 80%;
+	position: absolute;
+	top: 10%;
+	left:10%;
+	transform: scale(1.2,1.2);
+	opacity: 0;
+}
+.test4:hover figcaption div{
+	transform: scale(1,1);
+	opacity: 1;
+}
+.test4 figcaption h2{
+	opacity: 0;
+	margin-left: 15%;
+	margin-top: 15%;
+	transform: scale(1.2,1.2);
+}
+.test4:hover figcaption h2{
+	transform: scale(1,1);
+	opacity: 1;
+}
+.test4 figcaption p{
+	opacity: 0;
+	margin-left: 15%;
+	margin-top: 5%;
+	transform: scale(1.2,1.2);
+}
+.test4:hover figcaption p{
+	transform: scale(1,1);
+	opacity: 1;
+}
+.test4 figcaption p:nth-of-type(2),
+.test4 figcaption p:nth-of-type(3)
+{
+	margin-top: 0;
+}
+.test4  img{
+	transform:scale(1,1);
+}
+.test4:hover img{
+	transform:scale(1.5,1.5);
+	opacity: 0.5;
+}
+
+.test5{
+	background: #000;
+}
+.test5 figcaption{
+	width: 100%;
+	height: 100%;
+}
+.test5 figcaption h2{
+	font-size: 20px;
+	margin-left:15%;
+	opacity: 0;
+	transform: translate(0,60px);
+}
+.test5:hover figcaption h2{
+	opacity: 1;
+	transform: translate(0,25px);
+}
+.test5 div{
+	width:120%;
+	height: 50%;
+	background: #eee;
+	opacity: 0.3;
+	transform: rotate(0deg);
+}
+.test5:hover div{
+	transform: rotate(-20deg);
+	transform-origin: left top;
+}
+.test5:hover img{
+	opacity: 0.5;
+}
+.test5  p{
+	transform: translate(0,0);
+    color: #FFF;
+    bottom: -60px;
+    right: 99px;
+    position: absolute;
+    font-size: 19px;
+}
+.test5:hover  p{
+	transform: translate(0,-100px);
+}
+
+.test6{
+	background-color: #fff;
+}
+.test6 figcaption{
+	width: 100%;
+	height: 100%;
+}
+.test6 figcaption .div1{
+	width: 79%;
+    height: 60%;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    position: absolute;
+    left: 10%;
+    top: 26%;
+    transform: scale(1.2,1.2);
+    opacity: 0;
+}
+.test6:hover figcaption .div1{
+	transform: scale(1,1);
+	opacity: 1;
+}
+.test6 figcaption .div2{
+	width: 73%;
+    height: 68%;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    position: absolute;
+    left: 13%;
+    top: 21%;
+    transform: scale(1.2,1.2);
+    opacity: 0;
+}
+.test6:hover figcaption .div2{
+	transform: scale(1,1);
+	opacity: 1;
+}	
+.test6 figcaption h2{
+	margin-left: 17%;
+    margin-top: 23%;
+    transform: translate(0,-10px);
+}
+.test6:hover figcaption h2{
+	transform:translate(0,20px);
+}
+.test6 figcaption p{
+	margin-top: 2%;
+	margin-left: 17%;
+	transform: translate(0,25px);
+}
+.test6:hover figcaption p{
+	transform: translate(0,5px);
+}
