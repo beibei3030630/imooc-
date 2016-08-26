@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>7-8 full background slider</title>
+	<link rel="stylesheet" href="./reset.css">
+	<style>
+		@importurl("http://fonts.googleapis.com/css?family=Yesteryear");
+		html,body{
+			height: 100%;
+		}
+		/*设置背景图片全屏显示，并且居中*/
+		img.bg{
+			min-height: 100%;
+			min-width: 1024px;
+			height: auto!important;
+			height: 100%;
+			/*css !important优先级 不能识别ie6*/
+			position: fixed;
+			top: 0;
+			left: 50%;
+			z-index: 1;
+			-webkit-transfrom:translateX(-50%) ;
+			-moz-transform:translateX(-50%) ;
+			-ms-transform:translateX(-50%) ;
+			-o-transform:translateX(-50%) ;
+			transform:translateX(-50%) ;
+		}
+		/*设置背景图片从左向右移入显示的动画效果*/
+		@-webkit-keyframes"slideLeft"{
+			from{
+				left:-500px;
+			}
+			to{left: 0;}
+		}
+		@-moz-keyframes "slideLeft"{
+			from{
+				left:-500px;
+			}
+			to{left: 0;}
+		}
+		@-ms-keyframes "slideLeft"{
+			from{
+				left:-500px;
+			}
+			to{left: 0;}
+		}
+		@-o-keyframes "slideLeft"{
+			from{
+				left:-500px;
+			}
+			to{left: 0;}
+		}
+		@keyframes "slideLeft"{
+			from{
+				left:-500px;
+			}
+			to{left: 0;}
+		}
+		/*设置背景图像从底部向底部移入的动画效果*/
+		@-webkit-keyframes"slideBottom"{
+			from{
+				top:350px;
+			}
+			to{top:0px;}
+		}
+		@-moz-keyframes "slideBottom"{
+			from{
+				top:350px;
+			}
+			to{top:0px;}
+		}
+		@-ms-keyframes "slideBottom"{
+			from{
+				top:350px;
+			}
+			to{top:0px;}
+		}
+		@-o-keyframes "slideBottom"{
+			from{
+				top:350px;
+			}
+			to{top:0px;}
+		}
+		@keyframes "slideBottom"{
+			from{
+				top:350px;
+			}
+			to{top:0px;}
+		}
+	/*设置背景图片由小到大的动画效果*/
+		@-webkit-keyframes"zoomIn"{
+		from{
+			-webkit-transform:scale(0.1);
+		}
+		to{-webkit-transform:none;}
+	    }
+		@-moz-keyframes "zoomIn"{
+			from{
+				-moz-transform:scale(0.1);
+			}
+			to{-moz-transform:none;}
+		}
+		@-ms-keyframes "zoomIn"{
+			from{
+				-ms-transform:scale(0.1);
+			}
+			to{-ms-transform:none;}
+		}
+		@-o-keyframes "zoomIn"{
+			from{
+				-o-transform:scale(0.1);
+			}
+			to{-o-transform:none;}
+		}
+		@keyframes "zoomIn"{
+			from{
+				transform:scale(0.1);
+			}
+			to{transform:none;}
+		}
+		/*设置背景图像由大到小动画效果*/
+		@-webkit-keyframes"zoomOut"{
+		from{
+			-webkit-transform:scale(none);
+	}
+		to{-webkit-transform:scale(2);}
+	    }
+		@-moz-keyframes "zoomOut"{
+			from{
+				-moz-transform:scale(none);
+		}
+			to{-moz-transform:scale(2);}
+		}
+		@-ms-keyframes "zoomOut"{
+			from{
+				-ms-transform:scale(none);
+		}
+			to{-ms-transform:scale(2);}
+		}
+		@-o-keyframes "zoomOut"{
+			from{
+				-o-transform:scale(none);
+		}
+			to{-o-transform:scale(2);}
+		}
+		@keyframes "zoomOut"{
+			from{
+				transform:scale(none);
+			}
+			to{transform:scale(2);}
+		}
+	/*背景图像旋转出现动画效果*/
+	    @-webkit-keyframes"rotate"{
+			from{
+				-webkit-transform:rotate(-360deg) scale(0.1);
+			}
+			to{-webkit-transform:none;}
+	    }
+		@-moz-keyframes "rotate"{
+			from{
+				-moz-transform:rotate(-360deg) scale(0.1);
+		}
+			to{-moz-transform:none;}
+		}
+		@-ms-keyframes "rotate"{
+			from{
+				-ms-transform:rotate(-360deg) scale(0.1);
+		}
+			to{-ms-transform:none;}
+		}
+		@-o-keyframes "rotate"{
+			from{
+				-o-transform:rotate(-360deg) scale(0.1);
+		}
+			to{-o-transform:none;}
+		}
+		@keyframes "rotate"{
+			from{
+				transform:rotate(-360deg) scale(0.1);
+			}
+			to{transform:none;}
+		}
+		/*设置背景图像不显示动画效果*/
+		@-webkit-keyframes"notTarget"{
+		from{
+			 z-index: 75;
+			}
+			to{z-index: 75;}
+		}
+		@-moz-keyframes "notTarget"{
+			from{
+				 z-index: 75;
+				}
+				to{z-index: 75;}
+			}
+		@-ms-keyframes "notTarget"{
+			from{
+				 z-index: 75;
+				}
+				to{z-index: 75;}
+			}
+		@-o-keyframes "notTarget"{
+			from{
+				 z-index: 75;
+				}
+				to{z-index: 75;}
+			}
+		@keyframes "notTarget"{
+			from{
+				 z-index: 75;
+					}
+				to{z-index: 75;}
+			}
+				
+			.slider{
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				z-index: 9999;
+				bottom: 100px;
+			}
+			.slider li{
+				display: inline-block;
+				width: 170px;
+				height: 100%;
+				margin-right: 15px;
+			}
+			.slider a{
+				display: inline-block;
+				width: 170px;
+				padding-top: 70px;
+				padding-bottom: 20px;
+				position: relative;
+				cursor: pointer;
+				border: 2px solid #fff;
+				border-radius: 5px;
+				vertical-align: top;
+				color:#fff;
+				text-decoration: none;
+				font-size: 22px;
+				font-family: "Yesteryear",cursive;
+				text-shadow:-1px -1px 1px rgba(0, 0, 0, 0.8),-2px -2px 1px rgba(0, 0, 0, 0.3),-3px -3px 1px rgba(0, 0, 0, 0.3);
+			}
+			/*设置不同列表的背景色*/
+			li:nth-of-type(1){
+				background:#02646e;
+			}
+			li:nth-of-type(2){
+				background:#eb0837;
+			}
+			li:nth-of-type(3){
+				background:#67b374;
+			}
+			li:nth-of-type(4){
+				background:#e6674a;
+			}
+			li:nth-of-type(5){
+				background:#e61061;
+			}
+			a:after{
+				content: "";
+				display: block;
+				height: 120px;
+				width: 120px;
+				border: 5px solid #fff;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				margin-left: -60px;
+				z-index: 9999;
+				top:-80px;
+			}
+	</style>
+</head>
+<body>
+	<div class='slider'>  
+		<ul class="clearfix">
+			<li><a href="#bg1">aaa aaaa aaaaa aaaa aaaa</a></li>
+			<li><a href="#bg2">aaa aaaa aaaaa aaaa aaaa</a></li>
+			<li><a href="#bg3">aaa aaaa aaaaa aaaa aaaa</a></li>
+			<li><a href="#bg4">aaa aaaa aaaaa aaaa aaaa</a></li>
+			<li><a href="#bg5">aaa aaaa aaaaa aaaa aaaa</a></li>
+		</ul>
+	</div>
+		<img src="./img/bg1.jpg" alt="" id="bg1" class="bg sliderLeft">
+		<img src="./img/bg2.jpg" alt="" id="bg2" class="bg sliderBottom">
+		<img src="./img/bg3.jpg" alt="" id="bg3" class="bg zoomIn">
+		<img src="./img/bg4.jpg" alt="" id="bg4" class="bg zoomOut">
+		<img src="./img/bg5.jpg" alt="" id="bg5" class="bg rotate">
+</body>
+</html>
