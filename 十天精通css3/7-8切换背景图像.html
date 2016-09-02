@@ -13,18 +13,19 @@
 		img.bg{
 			min-height: 100%;
 			min-width: 1024px;
+			width: 100%;
 			height: auto!important;
 			height: 100%;
 			/*css !important优先级 不能识别ie6*/
 			position: fixed;
 			top: 0;
-			left: 50%;
+			left: 0;
 			z-index: 1;
-			-webkit-transfrom:translateX(-50%) ;
-			-moz-transform:translateX(-50%) ;
-			-ms-transform:translateX(-50%) ;
-			-o-transform:translateX(-50%) ;
-			transform:translateX(-50%) ;
+			-webkit-transfrom:translateX(-0) ;
+			-moz-transform:translateX(-0) ;
+			-ms-transform:translateX(-0) ;
+			-o-transform:translateX(-0) ;
+			transform:translateX(-0) ;
 		}
 		/*设置背景图片从左向右移入显示的动画效果*/
 		@-webkit-keyframes"slideLeft"{
@@ -122,33 +123,33 @@
 		/*设置背景图像由大到小动画效果*/
 		@-webkit-keyframes"zoomOut"{
 		from{
-			-webkit-transform:scale(none);
+			-webkit-transform:scale(2);
 	}
-		to{-webkit-transform:scale(2);}
+		to{-webkit-transform:scale(none);}
 	    }
 		@-moz-keyframes "zoomOut"{
 			from{
-				-moz-transform:scale(none);
+				-moz-transform:scale(2);
 		}
-			to{-moz-transform:scale(2);}
+			to{-moz-transform:scale(none);}
 		}
 		@-ms-keyframes "zoomOut"{
 			from{
-				-ms-transform:scale(none);
+				-ms-transform:scale(2);
 		}
-			to{-ms-transform:scale(2);}
+			to{-ms-transform:scale(none);}
 		}
 		@-o-keyframes "zoomOut"{
 			from{
-				-o-transform:scale(none);
+				-o-transform:scale(2);
 		}
-			to{-o-transform:scale(2);}
+			to{-o-transform:scale(none);}
 		}
 		@keyframes "zoomOut"{
 			from{
-				transform:scale(none);
+				transform:scale(2);
 			}
-			to{transform:scale(2);}
+			to{transform:scale(none);}
 		}
 	/*背景图像旋转出现动画效果*/
 	    @-webkit-keyframes"rotate"{
@@ -259,7 +260,7 @@
 				background:#e61061;
 			}
 			/*设置缩略图的形状*/
-			a:after{
+			.slider a:after{
 				content: "";
 				display: block;
 				height: 120px;
@@ -269,8 +270,9 @@
 				position: absolute;
 				left: 50%;
 				margin-left: -60px;
-				z-index: 9999;
+				z-index: 99;
 				top:-80px;
+
 			}
 			/*设置缩略图背景图像*/
 			li:nth-of-type(1) a:after{
@@ -293,7 +295,139 @@
 				background: url(./img/bg5.jpg);
 				background-size: contain;
 			}
-
+			/*给缩略图添加蒙板效果*/
+			.slider a:before{
+				content: "";
+				display: block;
+				height: 120px;
+				width: 120px;
+				border: 5px solid #fff;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				margin-left: -60px;
+				z-index: 999;
+				top:-80px;
+				background: rgba(0,0,0,0.3);
+			}
+			/*鼠标悬浮时，修改缩略图蒙板透明度*/
+			.slider a:hover:before{
+				opacity: 0;
+			}
+			/*点击缩略图，切换背景图*/
+			/*背景图从左向右出现*/
+			.slideLeft:target{
+				z-index:100;
+				animation-name:slideLeft;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+				-webkit-animation-name:slideLeft;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: 1;
+				-ms-animation-name:slideLeft;
+				-ms-animation-duration: 1s;
+				-ms-animation-iteration-count: 1;
+				-o-animation-name:slideLeft;
+				-o-animation-duration: 1s;
+				-o-animation-iteration-count: 1;
+				-moz-animation-name:slideLeft;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: 1;
+			}
+			/*背景图从下到上*/
+			.slideBottom:target{
+				z-index:100;
+				animation-name:slideBottom;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+				-webkit-animation-name:slideBottom;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: 1;
+				-ms-animation-name:slideBottom;
+				-ms-animation-duration: 1s;
+				-ms-animation-iteration-count: 1;
+				-o-animation-name:slideBottom;
+				-o-animation-duration: 1s;
+				-o-animation-iteration-count: 1;
+				-moz-animation-name:slideBottom;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: 1;
+			}
+			/*背景图从大到小*/
+			.zoomIn:target{
+				z-index:100;
+				animation-name:zoomIn;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+				-webkit-animation-name:zoomIn;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: 1;
+				-ms-animation-name:zoomIn;
+				-ms-animation-duration: 1s;
+				-ms-animation-iteration-count: 1;
+				-o-animation-name:zoomIn;
+				-o-animation-duration: 1s;
+				-o-animation-iteration-count: 1;
+				-moz-animation-name:zoomIn;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: 1;
+			}
+			/*背景图从小到大*/
+			.zoomOut:target{
+				z-index:100;
+				animation-name:zoomOut;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+				-webkit-animation-name:zoomOut;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: 1;
+				-ms-animation-name:zoomOut;
+				-ms-animation-duration: 1s;
+				-ms-animation-iteration-count: 1;
+				-o-animation-name:zoomOut;
+				-o-animation-duration: 1s;
+				-o-animation-iteration-count: 1;
+				-moz-animation-name:zoomOut;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: 1;
+			}
+			/*背景图旋转*/
+			.rotate:target{
+				z-index:100;
+				animation-name:rotate;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+				-webkit-animation-name:rotate;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: 1;
+				-ms-animation-name:rotate;
+				-ms-animation-duration: 1s;
+				-ms-animation-iteration-count: 1;
+				-o-animation-name:rotate;
+				-o-animation-duration: 1s;
+				-o-animation-iteration-count: 1;
+				-moz-animation-name:rotate;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: 1;
+			}
+			/*设置不显示的背景图层级*/
+			.bg:not(:target){
+				animation-name:noTarget;
+				animation-duration: 1s;
+				animation-iteration-count: 1;
+				-webkit-animation-name:noTarget;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-iteration-count: 1;
+				-ms-animation-name:noTarget;
+				-ms-animation-duration: 1s;
+				-ms-animation-iteration-count: 1;
+				-o-animation-name:noTarget;
+				-o-animation-duration: 1s;
+				-o-animation-iteration-count: 1;
+				-moz-animation-name:noTarget;
+				-moz-animation-duration: 1s;
+				-moz-animation-iteration-count: 1;
+			}
 	</style>
 </head>
 <body>
@@ -306,10 +440,10 @@
 			<li><a href="#bg5">aaa aaaa aaaaa aaaa aaaa</a></li>
 		</ul>
 	</div>
-		<img src="./img/bg1.jpg" alt="" id="bg1" class="bg sliderLeft">
-		<img src="./img/bg2.jpg" alt="" id="bg2" class="bg sliderBottom">
-		<img src="./img/bg3.jpg" alt="" id="bg3" class="bg zoomIn">
-		<img src="./img/bg4.jpg" alt="" id="bg4" class="bg zoomOut">
-		<img src="./img/bg5.jpg" alt="" id="bg5" class="bg rotate">
+		<img src="http://www.w3cplus.com/demo/css3/CSS3Fullbackground/bg1.jpg" alt="" class="bg slideLeft" id="bg1" />
+        <img src="http://www.w3cplus.com/demo/css3/CSS3Fullbackground/bg2.jpg" alt="" class="bg slideBottom" id="bg2" />
+        <img src="http://www.w3cplus.com/demo/css3/CSS3Fullbackground/bg3.jpg" alt="" class="bg zoomIn" id="bg3" />
+        <img src="http://www.w3cplus.com/demo/css3/CSS3Fullbackground/bg4.jpg" alt="" class="bg zoomOut" id="bg4" />
+        <img src="http://www.w3cplus.com/demo/css3/CSS3Fullbackground/bg5.jpg" alt="" class="bg rotate" id="bg5" />
 </body>
 </html>
