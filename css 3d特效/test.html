@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test 3d rotate</title>
+	<style>
+		/*布置3D场景*/
+		#experiment{
+			-webkit-perspective:800;
+			-webkit-perspective-origin:50% 50%;
+			-webkit-transform-style:-webkit-preserve-3d;
+			-moz-perspective:800;
+			-moz-perspective-origin:50% 50%;
+			-moz-transform-style:-moz-preserve-3d;
+		}
+		/*落实到元素上*/
+		#block{
+			width:500px;
+			height: 500px;
+			background-color: #69e;
+			margin: 100px auto;
+			-webkit-transform:rotateX(45deg);
+			-moz-transform:rotateX(45deg);
+		}
+	</style>
+</head>
+<body>
+	<div id="experiment">
+		<div id="block">
+		</div>
+	</div>
+</body>
+</html>
