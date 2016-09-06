@@ -3,6 +3,86 @@
 <head>
 	<meta charset="UTF-8">
 	<title>9-10 3d rotate nav</title>
+	<link rel="stylesheet" href="./reset.css">
+	<style>
+		@font-face{
+
+		}
+		body{
+			background-color: #edeced;
+		}
+		/*基础菜单样式*/
+		.nav-menu{
+			display: block;
+			background: #74adaa;
+			width: 950px;
+			margin: 50px auto 150px;
+		}
+		.nav-menu>li{
+			display: inline;
+			float: left;
+			border-right: 1px solid #94c0be;
+		}
+		.nav-menu>li:last-child{
+			border-right: none;
+		}
+		.clearfix:after{
+			content: "";
+			display: block;
+			clear: both;
+		}
+		.nav-menu li a{
+			color: #fff;
+			display: block;
+			text-decoration: none;
+			-webkit-font-smoothing:antialiased ;
+			-moz-font-smoothing:antialiased ;
+			font-smoothing:antialiased ;
+			/*使字体变的平滑*/
+			text-transform:capitalize;
+			/*使字体大写*/
+			overflow:hidden;
+			line-height: 20px;
+			font-size: 20px;
+			padding: 15px 30px 15px 31px;
+		}
+		.three-d{
+			/*设置3D舞台布景*/
+			perspective: 200;
+			-webkit-perspective:200;
+			perspective-origin: 50% 50%;
+			-webkit-perspective-origin:50% 50%;
+			position: relative;
+			/*设置3D舞台布景过度效果*/
+			-webkit-transition: all 0.7s linear;
+			-moz-transition: all 0.7s linear;
+			-ms-transition: all 0.7s linear;
+			-o-transition: all 0.7s linear;
+			transition: all 0.7s linear;
+		}
+		.three-d:not(.active):hover{
+			cursor: pointer;
+		}
+
+		/*给不是当前状态的3D舞台的悬浮与聚焦状态设置变形效果*/
+		.three-d:not(.active):hover .three-d-box,
+		.three-d:not(.active):focus .three-d-box
+		{
+			-webkit-transform:translateZ(-25px) rotateX(90deg);
+			-moz-transform:translateZ(-25px) rotateX(90deg);
+			-ms-transform:translateZ(-25px) rotateX(90deg);
+			-o-transform:translateZ(-25px) rotateX(90deg);
+			transform:translateZ(-25px) rotateX(90deg);
+		}
+		.three-d-box{
+			/*给3D舞台中“.three-d-box”设置过度与变形效果*/
+			-webkit-transform-style:preserve-3d ;
+			-moz-transform-style:preserve-3d ;
+			-ms-transform-style:preserve-3d ;
+			-o-transform-style:preserve-3d ;
+			transform-style:preserve-3d ;
+		}
+	</style>
 </head>
 <body>
 	<div id="nav">
@@ -11,8 +91,8 @@
 				Home
 				<a href="#" class="three-d active">
 					<span class='three-d-box'>
-					<span class="front">Home</span>						
-					<span class="back">Home</span>						
+					<span class="front">Home</span>			
+					<span class="back">Home</span>			
 					</span>
 				</a>
 			</li>
@@ -20,8 +100,8 @@
 			 	Services
 				<a href="#" class="three-d">
 					<span class='three-d-box'>
-					<span class="front">Services</span>						
-					<span class="back">Services</span>						
+					<span class="front">Services</span>		
+					<span class="back">Services</span>		
 					</span>
 				</a>
 			</li>
@@ -29,8 +109,8 @@
 			  	Products
 				<a href="#" class="three-d">
 					<span class='three-d-box'>
-					<span class="front">Products</span>						
-					<span class="back">Products</span>						
+					<span class="front">Products</span>		
+					<span class="back">Products</span>		
 					</span>
 				</a>
 			</li>
@@ -38,8 +118,8 @@
 			  	About
 				<a href="#" class="three-d">
 					<span class='three-d-box'>
-					<span class="front">About</span>						
-					<span class="back">About</span>						
+					<span class="front">About</span>		
+					<span class="back">About</span>			
 					</span>
 				</a>
 			</li>
@@ -47,8 +127,8 @@
 			 	Contact
 				<a href="#" class="three-d">
 					<span class='three-d-box'>
-					<span class="front">Contact</span>						
-					<span class="back">Contact</span>						
+					<span class="front">Contact</span>		
+					<span class="back">Contact</span>		
 					</span>
 				</a>
 			</li>
@@ -56,8 +136,8 @@
 				Blog
 				<a href="#" class="three-d">
 					<span class='three-d-box'>
-					<span class="front">Blog</span>						
-					<span class="back">Blog</span>						
+					<span class="front">Blog</span>			
+					<span class="back">Blog</span>			
 					</span>
 				</a>
 			</li>
@@ -65,8 +145,8 @@
 				Shop On-line
 				<a href="#" class="three-d">
 					<span class='three-d-box'>
-					<span class="front">Shop On-line</span>						
-					<span class="back">Shop On-line</span>						
+					<span class="front">Shop On-line</span>	
+					<span class="back">Shop On-line</span>	
 					</span>
 				</a>
 			</li>
